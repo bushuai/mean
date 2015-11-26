@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactApp">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Noteapp</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container well" ng-controller="ContactController">
+      <div class="row">
+        <h1>Contact List App</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" class="form-control" ng-model="contact.name">
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="contact.email">
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="contact.phone">
+              </td>
+              <td>
+                <button class="btn btn-primary" ng-click="addContact()">new</button>
+              </td>
+              <td>
+                <button class="btn btn-primary" ng-click="updateContact()">upd</button>
+              </td>
+            </tr>
+            <tr ng-repeat="person in contactlist">
+              <td>{{ person.name }}</td>
+              <td>{{ person.email }}</td>
+              <td>{{ person.phone }}</td>
+              <td>
+                <button class="btn btn-warning" ng-click="removeContact(person._id)">remove</button>
+              </td>
+              <td>
+                <button class="btn btn-primary" ng-click="editContact(person._id)">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="controllers/ContactController.js"></script>
+  </body>
+
+</html>
